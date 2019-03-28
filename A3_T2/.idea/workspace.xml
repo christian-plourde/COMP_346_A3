@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55c13ce1-e39e-4549-a7e2-44df53d3970c" name="Default Changelist" comment="" />
+    <list default="true" id="22155406-79e6-480e-bad1-cfc44f8a154d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T1/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T1/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T1/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3_T1/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3_T1/COMP_346_A3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/COMP_346_A3/DiningPhilosophers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/COMP_346_A3/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/COMP_346_A3/Monitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/COMP_346_A3/Philosopher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/COMP_346_A3/common/BaseThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/DiningPhilosophers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T1/src/DiningPhilosophers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T1/src/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Monitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T1/src/Monitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Philosopher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T1/src/Philosopher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/common/BaseThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T1/src/common/BaseThread.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -9,18 +27,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DiningPhilosophers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1778">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="57" />
@@ -28,31 +36,31 @@
     <option name="width" value="1890" />
     <option name="height" value="960" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="COMP_346_A3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="A3" type="462c0819:PsiDirectoryNode" />
+              <item name="A3_T2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="A3_T2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553790544934" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -67,9 +75,9 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="COMP_346_A3" type="Application" factoryName="Application">
+    <configuration name="COMP_346_A3_T2" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="DiningPhilosophers" />
-      <module name="COMP_346_A3" />
+      <module name="A3_T2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -80,11 +88,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="55c13ce1-e39e-4549-a7e2-44df53d3970c" name="Default Changelist" comment="" />
-      <created>1553790426092</created>
+      <changelist id="22155406-79e6-480e-bad1-cfc44f8a154d" name="Default Changelist" comment="" />
+      <created>1553807147562</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1553790426092</updated>
+      <updated>1553807147562</updated>
     </task>
     <servers />
   </component>
@@ -96,7 +104,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15870446" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -119,91 +127,11 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/DiningPhilosophers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1778">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-  </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>COMP_346_A3</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
