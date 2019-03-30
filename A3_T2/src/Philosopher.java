@@ -8,6 +8,7 @@ import common.BaseThread;
  */
 public class Philosopher extends BaseThread
 {
+
 	/**
 	 * Max time an action can take (in milliseconds)
 	 */
