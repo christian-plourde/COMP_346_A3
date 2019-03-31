@@ -114,9 +114,9 @@ public class Philosopher extends BaseThread
 			}
 
 			else
-            {
-                System.out.println("Philosopher " + getTID() + " had nothing interesting to say.");
-            }
+			{
+				System.out.println("Philosopher " + getTID() + " had nothing interesting to say.");
+			}
 
 			yield();
 		}
