@@ -99,16 +99,18 @@ public class Philosopher extends BaseThread
 
 			think();
 
-			/*
-			 * TODO:
-			 * A decision is made at random whether this particular
-			 * philosopher is about to say something terribly useful.
-			 */
-			if(true == false)
+			if(true)
 			{
-				// Some monitor ops down here...
+				//if the philosopher is going to say something useful, i.e. he was granted permission to say something
+				//then we are here
+				//before speaking, the philosopher must first make a request to speak
+				DiningPhilosophers.soMonitor.requestTalk();
 				talk();
-				// ...
+				//when he is finished talking he must end his talking phase to let others know they can now speak
+				//the only way this can be bypassed is if a philosopher waiting to speak has waited longer than his
+				//maximum allowed waiting time, in which can he can speak even if the philosopher currently speaking
+				//has not finished talking
+				DiningPhilosophers.soMonitor.endTalk();
 			}
 
 			yield();
@@ -135,6 +137,16 @@ public class Philosopher extends BaseThread
 			"Philosopher " + getTID() + " says: " +
 			astrPhrases[(int)(Math.random() * astrPhrases.length)]
 		);
+	}
+
+	private boolean allowTalk()
+	{
+		//a method to determine if the philosopher is allowed to talk (i.e. going to say something useful
+		//if the number generated is a multiple of 2 he is allowed to talk, otherwise he isn't.
+		int decision = (int)(Math.random()*100);
+		if(decision%2 == 0)
+			return true;
+		return false;
 	}
 }
 

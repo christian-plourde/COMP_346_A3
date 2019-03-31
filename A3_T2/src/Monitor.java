@@ -124,7 +124,17 @@ public class Monitor
 	 */
 	public synchronized void requestTalk()
 	{
-		// ...
+		//in the request talk method, we should wait for a maximum given amount of time, which is TIME_TO_WASTE
+		System.out.println("A philosopher is requesting to speak.");
+		try
+		{
+			wait(Philosopher.TIME_TO_WASTE);
+		}
+
+		catch(InterruptedException e)
+		{
+			System.out.println("Interruption detected.");
+		}
 	}
 
 	/**
@@ -133,7 +143,10 @@ public class Monitor
 	 */
 	public synchronized void endTalk()
 	{
-		// ...
+		//when a philosopher has finished talking, he should signal that he is finished talking so that a
+		//philosopher waiting to speak can begin talking.
+		notify();
+		System.out.println("Other philosophers are now free to express their thoughts.");
 	}
 }
 
