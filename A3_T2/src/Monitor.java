@@ -19,7 +19,7 @@ public class Monitor
 	 */
 	private State[] state;
 	private final Lock lock = new ReentrantLock();
-	private Condition[] conditions;
+	private Condition[] eating_conditions;
 
 	/**
 	 * Constructor
@@ -27,12 +27,12 @@ public class Monitor
 	public Monitor(int piNumberOfPhilosophers)
 	{
 		state = new State[piNumberOfPhilosophers];
-		conditions = new Condition[piNumberOfPhilosophers];
+		eating_conditions = new Condition[piNumberOfPhilosophers];
 		//initially all of the states should be set to thinking
 		for(int i = 0; i<state.length; i++)
 		{
 			state[i] = State.THINKING;
-			conditions[i] = lock.newCondition();
+			eating_conditions[i] = lock.newCondition();
 		}
 	}
 
@@ -55,7 +55,7 @@ public class Monitor
 			&& state[pID] == State.HUNGRY)
 		{
 			state[pID] = State.EATING;
-			conditions[pID].signal();
+			eating_conditions[pID].signal();
 			return;
 		}
 
@@ -83,7 +83,7 @@ public class Monitor
 			//if by this point we are not eating we should wait
 			try
 			{
-				conditions[id].await();
+				eating_conditions[id].await();
 			}
 
 			catch(InterruptedException e)
@@ -104,7 +104,9 @@ public class Monitor
 	public void putDown(final int piTID)
 	{
 		lock.lock();
+
 		int id = piTID;
+		System.out.println("Philosopher " + (id + 1) + " is getting ready to put down his chopsticks.");
 		//we should first set our state to thinking
 		state[id] = State.THINKING;
 
