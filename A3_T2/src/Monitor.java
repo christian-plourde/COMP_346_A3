@@ -4,6 +4,12 @@
  *
  * @author Serguei A. Mokhov, mokhov@cs.concordia.ca
  */
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+enum State{HUNGRY, EATING, SLEEPING, THINKING, TALKING};
+
 public class Monitor
 {
 	/*
@@ -11,18 +17,22 @@ public class Monitor
 	 * Data members
 	 * ------------
 	 */
-	private int nb_chopsticks; //the total number of chopsticks available
-	private boolean[] chopsticks; //tracks the use of each of the chopsticks. True means the chopstick is in use.
+	private State[] state;
+	private final Lock lock = new ReentrantLock();
+	private Condition[] conditions;
 
 	/**
 	 * Constructor
 	 */
 	public Monitor(int piNumberOfPhilosophers)
 	{
-		nb_chopsticks = 2*piNumberOfPhilosophers;
-		for(int i = 0; i<chopsticks.length; i++)
+		state = new State[piNumberOfPhilosophers];
+		conditions = new Condition[piNumberOfPhilosophers];
+		//initially all of the states should be set to thinking
+		for(int i = 0; i<state.length; i++)
 		{
-			chopsticks[i] = false;
+			state[i] = State.THINKING;
+			conditions[i] = lock.newCondition();
 		}
 	}
 
@@ -32,52 +42,82 @@ public class Monitor
 	 * -------------------------------
 	 */
 
-	private synchronized void test(int pID)
+	private void test(int pID)
 	{
-		//tests if the chopsticks for that philosopher are available or not
-		//if it is, then we pick it up and so the chopstick at that position becomes unavailable
-		if(chopsticks[pID%(nb_chopsticks/2)] && chopsticks[(pID+1)%(nb_chopsticks/2)])
+		//here we test if the philosopher can eat
+		// it is okay for him to eat if his left and right neighbors are not eating. This is legal if his left and right
+		//neighbors are not eating. This will guarantee that the chopstick to his left and the chopstick to his right
+		//are available
+		System.out.println("Testing for philosopher " + (pID + 1) + ". The neighbors are: " + ((pID + 1)%state.length + 1) +
+				" and " + ((pID + state.length - 1)%state.length + 1) + ".");
+
+		if(state[(pID + 1)%state.length] != State.EATING && state[(pID + state.length - 1)%state.length] != State.EATING
+			&& state[pID] == State.HUNGRY)
 		{
-			chopsticks[pID%(nb_chopsticks/2)] = false;
-			chopsticks[(pID+1)%(nb_chopsticks/2)] = false;
+			state[pID] = State.EATING;
+			conditions[pID].signal();
+			return;
 		}
 
-		else
-		{
-			try
-			{
-				wait();
-			}
-			catch (InterruptedException e)
-			{
-
-			}
-
-		}
+		System.out.println("Philosopher " + (pID + 1) + " is not allowed to eat. "
+				+ "Exiting method for Philosopher " + (pID + 1) + ".");
 	}
 
 	/**
 	 * Grants request (returns) to eat when both chopsticks/forks are available.
 	 * Else forces the philosopher to wait()
 	 */
-	public synchronized void pickUp(final int piTID)
+	public void pickUp(final int piTID)
 	{
-		//we perform a test to see if the two chopsticks are available. If not, then we wait. If they are available
-		//then we are giving access to the end of this method
-		test(piTID);
+		lock.lock();
+		int id = piTID;
+		//before picking up set the state to hungry to signal intention to eat
+		state[id] = State.HUNGRY;
+
+		//test to see if the chopsticks are available
+		test(id);
+
+		if(state[id] != State.EATING)
+		{
+			System.out.println("Philosopher " + (id + 1) + " is waiting for chopsticks to be available.");
+			//if by this point we are not eating we should wait
+			try
+			{
+				conditions[id].await();
+			}
+
+			catch(InterruptedException e)
+			{
+
+			}
+
+			System.out.println("Chopsticks have become available for Philosopher " + (id+1) + ".");
+		}
+
+		lock.unlock();
 	}
 
 	/**
 	 * When a given philosopher's done eating, they put the chopstiks/forks down
 	 * and let others know they are available.
 	 */
-	public synchronized void putDown(final int piTID)
+	public void putDown(final int piTID)
 	{
-		//
+		lock.lock();
+		int id = piTID;
+		//we should first set our state to thinking
+		state[id] = State.THINKING;
+
+		//then we should test our left and right neighbors to allow them to eat
+		test((id + 1)%state.length);
+		test((id + state.length - 1)%state.length);
+
+		System.out.println("Philosopher " + (id + 1) + " has put down his chopsticks.");
+		lock.unlock();
 	}
 
 	/**
-	 * Only one philopher at a time is allowed to philosophy
+	 * Only one philosopher at a time is allowed to philosophy
 	 * (while she is not eating).
 	 */
 	public synchronized void requestTalk()

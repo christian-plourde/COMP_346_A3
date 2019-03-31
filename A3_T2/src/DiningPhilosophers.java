@@ -59,18 +59,18 @@ public class DiningPhilosophers
 			// Space for all the philosophers
 			Philosopher aoPhilosophers[] = new Philosopher[iPhilosophers];
 
+			System.out.println
+					(
+							iPhilosophers +
+									" philosopher(s) came in for a dinner."
+					);
+
 			// Let 'em sit down
 			for(int j = 0; j < iPhilosophers; j++)
 			{
 				aoPhilosophers[j] = new Philosopher();
 				aoPhilosophers[j].start();
 			}
-
-			System.out.println
-			(
-				iPhilosophers +
-				" philosopher(s) came in for a dinner."
-			);
 
 			// Main waits for all its children to die...
 			// I mean, philosophers to finish their dinner.
