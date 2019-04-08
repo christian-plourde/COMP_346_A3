@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-enum State{HUNGRY, EATING, THINKING};
+enum State{HUNGRY, EATING, THINKING, SLEEPING};
 
 public class Monitor
 {
@@ -22,6 +22,7 @@ public class Monitor
 	private Condition[] eating_conditions;
 	private int[] priority; //this will hold the priority of each of the philosophers
 	private boolean[] prioritiesSet;
+	boolean someoneIsTalking;
 
 	private void randomizePriority()
 	{
@@ -92,6 +93,7 @@ public class Monitor
 		eating_conditions = new Condition[piNumberOfPhilosophers];
 		priority = new int[piNumberOfPhilosophers];
 		prioritiesSet = new boolean[piNumberOfPhilosophers];
+		someoneIsTalking = false;
 
 		//initially all of the states should be set to thinking
 		System.out.println("Initial eating priorities:");
@@ -203,32 +205,94 @@ public class Monitor
 	 * Only one philosopher at a time is allowed to philosophy
 	 * (while she is not eating).
 	 */
-	public synchronized void requestTalk()
+	public synchronized void requestTalk(final int piTID)
 	{
 		//in the request talk method, we should wait for a maximum given amount of time, which is TIME_TO_WASTE
 		System.out.println("A philosopher is requesting to speak.");
-		try
-		{
-			wait(Philosopher.TIME_TO_WASTE);
-		}
 
-		catch(InterruptedException e)
+		//we are allowed to speak if no one else is talking and if no one is sleeping
+		boolean allowedToSpeak = false;
+
+		while(someoneIsTalking || someoneIsSleeping())
 		{
-			System.out.println("Interruption detected.");
+			allowedToSpeak = !someoneIsSleeping();
+
+			try
+			{
+				if(!allowedToSpeak || someoneIsTalking)
+				{
+					System.out.println("Philosopher " + (piTID + 1) + " could not speak.");
+					this.wait();
+				}
+			}
+
+			catch(InterruptedException e)
+			{
+				System.out.println("Interruption detected.");
+			}
 		}
+		someoneIsTalking = true;
 	}
 
 	/**
 	 * When one philosopher is done talking stuff, others
 	 * can feel free to start talking.
 	 */
-	public synchronized void endTalk()
+	public synchronized void endTalk(final int piTID)
 	{
 		//when a philosopher has finished talking, he should signal that he is finished talking so that a
 		//philosopher waiting to speak can begin talking.
+		someoneIsTalking = false;
 		notify();
 		System.out.println("Other philosophers are now free to express their thoughts.");
 	}
+
+	/**
+	 *
+	 */
+	public synchronized void requestSleep(final int piTID)
+	{
+		//check if there is someone talking
+		//otherwise wait
+		System.out.println("Philosopher " + (piTID + 1) + " wants to sleep.");
+
+		while(someoneIsTalking)
+		{
+			System.out.println("Philosopher " + (piTID+1) + " could not sleep because someone was talking.");
+			try
+			{
+				this.wait();
+				state[piTID] = State.SLEEPING;
+				System.out.println("Philosopher " + (piTID + 1) + " is now sleeping.");
+			}
+
+			catch(InterruptedException e)
+			{
+				System.out.println("Interruption detected");
+			}
+		}
+
+		System.out.println("Philosopher " + (piTID + 1) + " is now sleeping.");
+	}
+
+	public synchronized void endSleep(final int piTID)
+	{
+		this.notify();
+		state[piTID] = State.THINKING;
+		System.out.println("Philosopher " + (piTID + 1) + " has finished sleeping.");
+	}
+
+	private synchronized boolean someoneIsSleeping()
+	{
+		for(int i = 0; i < state.length; i++)
+		{
+			if(state[i] == State.SLEEPING)
+				return true;
+		}
+
+		return false;
+	}
+
 }
 
 // EOF

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d44b2ab-01fc-4f72-b35a-a7ea8c19ac4c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../A3_T2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../A3_T2/out/production/A3_T2/Philosopher.class" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T2/out/production/A3_T2/Philosopher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../A3_T2/src/Philosopher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T2/src/Philosopher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Philosopher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Philosopher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3_T4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3_T4/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Philosopher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+            <state relative-caret-position="1412">
+              <caret line="176" column="16" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Monitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="136" column="19" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="19" />
+            <state relative-caret-position="138">
+              <caret line="246" column="38" selection-start-line="246" selection-start-column="38" selection-end-line="246" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -41,8 +42,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Philosopher.java" />
         <option value="$PROJECT_DIR$/src/DiningPhilosophers.java" />
+        <option value="$PROJECT_DIR$/src/Philosopher.java" />
         <option value="$PROJECT_DIR$/src/Monitor.java" />
       </list>
     </option>
@@ -75,8 +76,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -119,8 +120,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26153848" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27125505" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -129,7 +131,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32960895" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32960895" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -151,22 +153,22 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/DiningPhilosophers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
+        <state relative-caret-position="186">
           <caret line="70" column="54" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Philosopher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+        <state relative-caret-position="1412">
+          <caret line="176" column="16" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Monitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="136" column="19" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="19" />
+        <state relative-caret-position="138">
+          <caret line="246" column="38" selection-start-line="246" selection-start-column="38" selection-end-line="246" selection-end-column="38" />
         </state>
       </provider>
     </entry>

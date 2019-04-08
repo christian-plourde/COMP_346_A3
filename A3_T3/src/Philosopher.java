@@ -99,18 +99,24 @@ public class Philosopher extends BaseThread
 
 			think();
 
+			DiningPhilosophers.soMonitor.requestSleep(getTID() - 1);
+
+			PhilSleep();
+
+			DiningPhilosophers.soMonitor.endSleep(getTID() - 1);
+
 			if(allowTalk())
 			{
 				//if the philosopher is going to say something useful, i.e. he was granted permission to say something
 				//then we are here
 				//before speaking, the philosopher must first make a request to speak
-				DiningPhilosophers.soMonitor.requestTalk();
+				DiningPhilosophers.soMonitor.requestTalk(getTID() - 1);
 				talk();
 				//when he is finished talking he must end his talking phase to let others know they can now speak
 				//the only way this can be bypassed is if a philosopher waiting to speak has waited longer than his
 				//maximum allowed waiting time, in which can he can speak even if the philosopher currently speaking
 				//has not finished talking
-				DiningPhilosophers.soMonitor.endTalk();
+				DiningPhilosophers.soMonitor.endTalk(getTID() - 1);
 			}
 
 			else
@@ -152,6 +158,23 @@ public class Philosopher extends BaseThread
 		if(decision%2 == 0)
 			return true;
 		return false;
+	}
+
+	public void PhilSleep()
+	{
+		//...
+		yield();
+		try
+		{
+			sleep((long)(Math.random() * TIME_TO_WASTE)); // define variable TIME_TO_WASTE
+		}
+
+		catch(InterruptedException e)
+		{
+			System.out.println("Interruption Detected.");
+		}
+
+		yield();
 	}
 }
 
